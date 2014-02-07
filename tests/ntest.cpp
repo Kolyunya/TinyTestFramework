@@ -16,7 +16,7 @@
 //
 //  Author email: OleynikovNY@mail.ru
 
-#include "./../include/ntest/ntest.hpp"
+#include <ntest/ntest.hpp>
 
 int main ( void )
 {
