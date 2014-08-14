@@ -29,9 +29,16 @@ ntest::assert_true([]()
 ### Assertions of `false`
 
 ~~~C++
+//  A passing test
 ntest::assert_false([]()
 {
-    return false;
+    return 42 != 42;
+});
+
+//  A failing test
+ntest::assert_true([]()
+{
+    return 42 == 42;
 });
 ~~~
 
