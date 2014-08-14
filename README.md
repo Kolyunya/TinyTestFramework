@@ -25,7 +25,7 @@ ntest::assert_true([]()
     return 42 != 42;
 });
 
-//  A shorthand macro for a passing test
+//  A shorthand macro
 ASSERT_TRUE
 (
     return true;
@@ -46,6 +46,12 @@ ntest::assert_true([]()
 {
     return 42 == 42;
 });
+
+//  A shorthand macro
+ASSERT_FALSE
+(
+    return false;
+)
 ~~~
 
 ### Running tests
