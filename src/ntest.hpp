@@ -1,21 +1,21 @@
 #ifndef _NTEST_HPP_
 #define _NTEST_HPP_
 
-#include <functional>       //  std::function
-#include <vector>           //  std::vector
-#include <iostream>         //  std::cout
+#include <functional>
+#include <vector>
+#include <iostream>
 
 namespace NTEST
 {
 
     //  Function taking no arguments and returning "bool"
-    typedef std::function<bool(void)>       bool_function;
+    typedef std::function<bool(void)> bool_function;
 
     //  Function taking no arguments and returning nothing
-    typedef std::function<void(void)>       void_function;
+    typedef std::function<void(void)> void_function;
 
     //  A collection of "bool_function" objects
-    typedef std::vector<bool_function>      bool_functions;
+    typedef std::vector<bool_function> bool_functions;
 
     class TEST
     {
@@ -23,25 +23,25 @@ namespace NTEST
         public:
 
             //  Tests the `test_function` function to return `true`
-            static void                 TRUE ( bool_function test_function );
+            static void TRUE ( bool_function test_function );
 
             //  Tests the `test_function` function to return `false`
-            static void                 FALSE ( bool_function test_function );
+            static void FALSE ( bool_function test_function );
 
             //  Tests the `test_function` function to thow `exception` exception
             template <typename exception>
-            static void                 THROW ( void_function test_function );
+            static void THROW ( void_function test_function );
 
             //  Tests the `test_function` function not to thow any exceptions
-            static void                 NOTHROW ( void_function test_function );
+            static void NOTHROW ( void_function test_function );
 
             //  Runs all tests
-            static bool                 RUN ( void );
+            static bool RUN ( void );
 
         private:
 
             //  Collection of tests
-            static bool_functions       test_functions;
+            static bool_functions test_functions;
 
     };
 
@@ -68,4 +68,4 @@ namespace NTEST
 //  include non-template methods implementation
 #include "ntest.ipp"
 
-#endif  //  _NTEST_HPP_
+#endif

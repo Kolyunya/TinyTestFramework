@@ -1,16 +1,16 @@
 namespace NTEST
 {
 
-    bool_functions      TEST::test_functions = {};
+    bool_functions TEST::test_functions = {};
 
-    void                TEST::TRUE ( bool_function test_function )
+    void TEST::TRUE ( bool_function test_function )
     {
 
         TEST::test_functions.push_back(test_function);
 
     }
 
-    void                TEST::FALSE ( bool_function test_function )
+    void TEST::FALSE ( bool_function test_function )
     {
 
         TEST::test_functions.push_back
@@ -23,7 +23,7 @@ namespace NTEST
 
     }
 
-    void                TEST::NOTHROW ( void_function test_function )
+    void TEST::NOTHROW ( void_function test_function )
     {
 
         TEST::TRUE([&test_function]()
@@ -52,7 +52,7 @@ namespace NTEST
 
     }
 
-    bool                TEST::RUN ( void )
+    bool TEST::RUN ( void )
     {
 
         bool all_tests_succeeded = true;

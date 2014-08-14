@@ -2,7 +2,7 @@ namespace NTEST
 {
 
     template <typename exception>
-    void    TEST::THROW ( void_function test_function )
+    void TEST::THROW ( void_function test_function )
     {
 
         TEST::TRUE([&test_function]()
