@@ -1,5 +1,5 @@
-#ifndef _NASSERT_HPP_
-#define _NASSERT_HPP_
+#ifndef _NTEST_HPP_
+#define _NTEST_HPP_
 
 #include <functional>
 #include <vector>
