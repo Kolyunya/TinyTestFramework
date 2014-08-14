@@ -13,9 +13,16 @@ Just include the `include/ntest/ntest.hpp` to your source file and you are good 
 ### Assertions of `true`
 
 ~~~C++
+//  A passing test
 ntest::assert_true([]()
 {
-    return true;
+    return 42 == 42;
+});
+
+//  A failing test
+ntest::assert_true([]()
+{
+    return 42 != 42;
 });
 ~~~
 
