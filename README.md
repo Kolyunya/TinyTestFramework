@@ -1,4 +1,4 @@
-# Tiny C++ unit-testing framework
+# A tiny C++ unit-testing framework
 
 ## Description
 
