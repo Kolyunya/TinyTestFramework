@@ -1,6 +1,9 @@
-NanoTest (ntest)
-=================
+# Tiny C++ unit-testing framework
 
-C++ unit-testing framework
+## Description
 
-[![Build Status](https://drone.io/github.com/Kolyunya/ntest/status.png)](https://drone.io/github.com/Kolyunya/ntest/latest)
+A (very) tiny C++ unit-testing header-only framework.
+
+## Usage
+
+Just include the `include/ntest.hpp` to your source file and you are good to go.
