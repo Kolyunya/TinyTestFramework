@@ -10,7 +10,7 @@ Just include the `include/ntest/ntest.hpp` to your source file and you are good 
 
 ## Usage
 
-### Assertions of `true`
+### Assertion of `true`
 
 ~~~C++
 //  A passing test
@@ -32,7 +32,7 @@ ASSERT_TRUE
 )
 ~~~
 
-### Assertions of `false`
+### Assertion of `false`
 
 ~~~C++
 //  A passing test
@@ -54,7 +54,7 @@ ASSERT_FALSE
 )
 ~~~
 
-### Assertions of `throw`
+### Assertion of `throw`
 
 ~~~C++
 //  A passing test
@@ -75,6 +75,30 @@ ASSERT_THROW
     int,
     {
         throw 42;
+    }
+)
+~~~
+
+### Assertion of `nothrow`
+
+~~~C++
+//  A passing test
+ntest::assert_nothrow([]()
+{
+    //  No exceptions are thrown here
+});
+
+//  A failing test
+ntest::assert_nothrow([]()
+{
+    throw 42;
+});
+
+//  A shorthand macro
+ASSERT_NOTHROW
+(
+    {
+        //  No exceptions are thrown here
     }
 )
 ~~~
