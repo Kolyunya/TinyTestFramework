@@ -64,7 +64,7 @@ ntest::assert_throw<int>([]()
 });
 
 //  A failing test
-ntest::assert_throw([]()
+ntest::assert_throw<int>([]()
 {
     return "42";
 });
