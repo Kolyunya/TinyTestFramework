@@ -24,6 +24,12 @@ ntest::assert_true([]()
 {
     return 42 != 42;
 });
+
+//  A shorthand macro for a passing test
+ASSERT_TRUE
+(
+    return true;
+)
 ~~~
 
 ### Assertions of `false`
