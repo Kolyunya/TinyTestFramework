@@ -1,39 +1,39 @@
-namespace NTEST
+namespace ntest
 {
 
     template <typename exception>
-    void TEST::THROW ( void_function test_function )
+    void assert_throw ( void_function test_function )
     {
 
-        TEST::TRUE([&test_function]()
-        {
-
-            try
+        assert_true
+        (
+            [&test_function]
+            ()
             {
 
-                //  Try to execute the test function
-                test_function();
+                try
+                {
+                    //  Try to execute the test function
+                    test_function();
+                }
 
-            }
-            catch ( exception )
-            {
+                catch ( exception )
+                {
+                    //  Exception was thrown and it's of the expected type
+                    return true;
+                }
 
-                //  Exception was thrown and it's of the expected type
-                return true;
+                catch ( ... )
+                {
+                    //  Exception was thrown and it's of the unexpected type
+                    return false;
+                }
 
-            }
-            catch ( ... )
-            {
-
-                //  Exception was thrown and it's of the unexpected type
+                //  No exception was thrown
                 return false;
 
             }
-
-            //  No exception was thrown
-            return false;
-
-        });
+        );
 
     }
 

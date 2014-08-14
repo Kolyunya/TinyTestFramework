@@ -1,71 +1,62 @@
-#ifndef _NTEST_HPP_
-#define _NTEST_HPP_
+#ifndef _NASSERT_HPP_
+#define _NASSERT_HPP_
 
 #include <functional>
 #include <vector>
 #include <iostream>
 
-namespace NTEST
+namespace ntest
 {
 
-    //  Function taking no arguments and returning "bool"
+    //  A function taking no arguments and returning "bool"
     typedef std::function<bool(void)> bool_function;
 
-    //  Function taking no arguments and returning nothing
+    //  A function taking no arguments and returning nothing
     typedef std::function<void(void)> void_function;
 
     //  A collection of "bool_function" objects
     typedef std::vector<bool_function> bool_functions;
 
-    class TEST
-    {
+    //  Tests the `test_function` to return `true`
+    void assert_true ( bool_function test_function );
 
-        public:
+    //  Tests the `test_function` to return `false`
+    void assert_false ( bool_function test_function );
 
-            //  Tests the `test_function` function to return `true`
-            static void TRUE ( bool_function test_function );
+    //  Tests the `test_function` to thow `exception` exception
+    template <typename exception>
+    void assert_throw ( void_function test_function );
 
-            //  Tests the `test_function` function to return `false`
-            static void FALSE ( bool_function test_function );
+    //  Tests the `test_function` not to thow any exceptions
+    void assert_nothrow ( void_function test_function );
 
-            //  Tests the `test_function` function to thow `exception` exception
-            template <typename exception>
-            static void THROW ( void_function test_function );
+    //  Runs all tests
+    bool run ( void );
 
-            //  Tests the `test_function` function not to thow any exceptions
-            static void NOTHROW ( void_function test_function );
-
-            //  Runs all tests
-            static bool RUN ( void );
-
-        private:
-
-            //  Collection of tests
-            static bool_functions test_functions;
-
-    };
+    //  Collection of tests
+    static bool_functions test_functions = {};
 
 }
 
-//  Macro for NTEST::TEST::TRUE
-#define TEST_TRUE(test) NTEST::TEST::TRUE([](){test})
+//  A macro for ntest::assert_true
+#define ASSERT_TRUE(test) ntest::assert_true([](){test})
 
-//  Macro for NTEST::TEST::FALSE
-#define TEST_FALSE(test) NTEST::TEST::FALSE([](){test})
+//  A macro for ntest::assert_false
+#define ASSERT_FALSE(test) ntest::assert_false([](){test})
 
-//  Macro for NTEST::TEST::TROW<Exception>
-#define TEST_THROW(exception,test) NTEST::TEST::THROW<exception>([](){test})
+//  A macro for ntest::assert_throw
+#define ASSERT_THROW(exception,test) ntest::assert_throw<exception>([](){test})
 
-//  Macro for NTEST::TEST::NOTHROW
-#define TEST_NOTHROW(test) NTEST::TEST::NOTHROW([](){test})
+//  A macro for ntest::assert_nothrow
+#define ASSERT_NOTHROW(test) ntest::assert_nothrow([](){test})
 
-//  Macro for NTEST::TEST::RUN
-#define TEST_RUN() NTEST::TEST::RUN()
+//  A macro for ntest::run
+#define RUN() ntest::run()
 
 //  Include template methods implementation
 #include "ntest.tpp"
 
-//  include non-template methods implementation
+//  Include non-template methods implementation
 #include "ntest.ipp"
 
 #endif

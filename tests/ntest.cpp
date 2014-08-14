@@ -3,12 +3,12 @@
 int main ( void )
 {
 
-    NTEST::TEST::TRUE([]()
+    ntest::assert_true([]()
     {
         return 1;
     });
 
-    NTEST::TEST::TRUE([]()
+    ntest::assert_true([]()
     {
         int a = 1;
         int b = 12;
@@ -18,7 +18,7 @@ int main ( void )
         );
     });
 
-    NTEST::TEST::TRUE([]()
+    ntest::assert_true([]()
     {
         //  Test with commas
 
@@ -30,7 +30,7 @@ int main ( void )
         );
     });
 
-    TEST_TRUE
+    ASSERT_TRUE
     (
         int a = 1;
         int b = 12;
@@ -40,12 +40,12 @@ int main ( void )
         );
     );
 
-    NTEST::TEST::FALSE([]()
+    ntest::assert_false([]()
     {
         return 0;
     });
 
-    NTEST::TEST::FALSE([]()
+    ntest::assert_false([]()
     {
         int a = 1;
         int b = 12;
@@ -55,7 +55,7 @@ int main ( void )
         );
     });
 
-    TEST_FALSE
+    ASSERT_FALSE
     (
         int a = 1;
         int b = 12;
@@ -65,12 +65,12 @@ int main ( void )
         );
     );
 
-    NTEST::TEST::THROW<int>([]()
+    ntest::assert_throw<int>([]()
     {
         throw 1;
     });
 
-    TEST_THROW
+    ASSERT_THROW
     (
         int,
         {
@@ -78,16 +78,16 @@ int main ( void )
         }
     );
 
-    NTEST::TEST::NOTHROW([]()
+    ntest::assert_nothrow([]()
     {
 
     });
 
-    TEST_NOTHROW
+    ASSERT_NOTHROW
     (
 
     );
 
-    return NTEST::TEST::RUN() ? 0 : 1;
+    return ntest::run() ? 0 : 1;
 
 }
