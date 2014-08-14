@@ -54,6 +54,31 @@ ASSERT_FALSE
 )
 ~~~
 
+### Assertions of `throw`
+
+~~~C++
+//  A passing test
+ntest::assert_throw<int>([]()
+{
+    throw 42;
+});
+
+//  A failing test
+ntest::assert_throw([]()
+{
+    return "42";
+});
+
+//  A shorthand macro
+ASSERT_THROW
+(
+    int,
+    {
+        throw 42;
+    }
+)
+~~~
+
 ### Running tests
 ~~~C++
 #include <ntest/ntest.hpp>
