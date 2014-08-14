@@ -34,9 +34,7 @@ ntest::assert_false([]()
 int main ( void )
 {
     /*
-     * ...
      * Some assertions
-     * ...
      */
     return ntest::run() ? 0 : 1;
 }
